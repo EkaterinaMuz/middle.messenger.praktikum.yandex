@@ -1,0 +1,21 @@
+<main class="{{ styles.card }}">
+    <div class="{{styles.profile}}">
+        {{> ProfileHeader profileHeader}}
+        <section class="{{styles.section}}">
+            <form>
+                <div class="{{styles.info}}">
+                    {{#each fields}}
+                        {{> FormItem this}}
+                    {{/each}}
+                </div>
+                <div class="{{styles.actionBlock}}">
+                    {{> Button
+                            label="Save"
+                            styles=buttonStyles
+                    }}
+                </div>
+            </form>
+            {{> Footer}}
+        </section>
+    </div>
+</main>

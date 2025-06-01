@@ -1,0 +1,19 @@
+<main class="{{ styles.card }}">
+    <div class="{{styles.profile}}">
+        {{> ProfileHeader profileHeader}}
+        <section class="{{styles.section}}">
+            <div class="{{styles.info}}">
+                {{#each fields}}
+                    {{> InfoCell this}}
+                {{/each}}
+            <div class="{{styles.actionBlock}}">
+                <a href="/profile/edit" data-page="edit" class="link">Update Information</a>
+                <a href="/profile/password" data-page="password" class="link">Change password</a>
+            </div>
+            <hr class="{{styles.separator}}" />
+            <a class="link link--red" href="#">Sign out</a>
+            </div>
+            {{>  Footer}}
+        </section>
+    </div>
+</main>

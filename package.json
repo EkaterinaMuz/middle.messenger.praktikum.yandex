@@ -1,0 +1,27 @@
+{
+  "name": "web_messenger",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "dev": "vite --port=3000",
+    "start": "tsc && vite build && vite preview --port 3000",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.4",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.2.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "vite-plugin-handlebars": "^2.0.0"
+  }
+}
