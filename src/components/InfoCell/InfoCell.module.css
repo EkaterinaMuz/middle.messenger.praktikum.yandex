@@ -1,0 +1,27 @@
+.infoCell__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.infoCell__label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.infoCell__value {
+  font-size: 16px;
+  color: #ffffff;
+  margin-left: 80px;
+  white-space: nowrap;
+}
+
+.infoCell__separator {
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff30;
+  border: none;
+  margin: 12px 0;
+}
+

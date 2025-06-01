@@ -1,0 +1,25 @@
+.formItem {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.formItem__label {
+  font-family: 'Roboto', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.81);
+  text-align: left;
+}
+
+.formItem__input {
+  height: 45px;
+  width: 100%;
+  padding: 17px;
+  background-color: #3A4150;
+  color: #ffffff;
+  border: solid #EAEAEA30 0.5px;
+  border-radius: 8px;
+}

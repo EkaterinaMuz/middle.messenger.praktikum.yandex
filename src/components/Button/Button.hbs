@@ -1,0 +1,8 @@
+<button
+    type="{{#if type}}{{type}}{{else}}button{{/if}}"
+    class="{{ styles }}"
+    {{#if disabled}}disabled{{/if}}
+    {{#if ariaLabel}}aria-label="{{ariaLabel}}"{{/if}}
+>
+    {{label}}
+</button>

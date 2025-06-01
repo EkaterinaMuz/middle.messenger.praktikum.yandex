@@ -1,0 +1,51 @@
+.card {
+  display: block;
+  padding: 50px 45px;
+  margin: 0 auto;
+  width: 977px;
+  height: auto;
+  background-color: #222936;
+  border: 0.5px solid #EAEAEA30;
+  border-radius: 8px;
+}
+
+.profile {
+  font-family: 'Roboto', sans-serif;
+  color: #2c2c2c;
+}
+
+.profile__section {
+  margin-bottom: 32px;
+}
+
+.profile__heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.profile__info {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.profile__actions {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.profile__action {
+  font-size: 16px;
+  color: #3369F3;
+  font-weight: 300;
+}
+
+.profile__divider {
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+  margin: 32px 0;
+}

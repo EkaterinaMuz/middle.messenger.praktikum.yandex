@@ -1,0 +1,50 @@
+.profileHeader {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+
+.profileHeader__avatar {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.profileHeader__avatar:hover {
+  background-color: #000;
+  opacity: 0.4;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.profileHeader__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileHeader__name {
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.profileHeader__subheading {
+  font-size: 15px;
+  font-family: 'Roboto', monospace;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.profile__avatarLabel {
+  cursor: pointer;
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+

@@ -1,0 +1,40 @@
+.card {
+  display: block;
+  padding: 50px 45px;
+  margin: 0 auto;
+  width: 60vw;
+  height: auto;
+  background-color: #222936;
+  border: 0.5px solid #EAEAEA30;
+  border-radius: 8px;
+}
+
+.profile {
+  font-family: 'Roboto', sans-serif;
+  color: #2c2c2c;
+}
+
+.profile__section {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.profile__heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+
+.profile__actions {
+  display: flex;
+  justify-content: right;
+  margin-top: 25px;
+}

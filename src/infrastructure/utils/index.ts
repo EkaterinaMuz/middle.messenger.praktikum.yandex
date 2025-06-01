@@ -1,0 +1,1 @@
+export { isRouteConfigPath } from './isRouteConfigPath';
