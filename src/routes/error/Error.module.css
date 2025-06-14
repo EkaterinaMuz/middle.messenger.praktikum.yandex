@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 48px;
+  font-family: 'Roboto', monospace;
+  color: #ffffff;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Roboto', monospace;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.description {
+  font-size: 24px;
+  font-family: 'Roboto', monospace;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.instruction {
+  font-size: 14px;
+  color: #ffffff;
+}

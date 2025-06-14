@@ -1,0 +1,37 @@
+<main class="{{ styles.card }}">
+    <div class="{{profileHeader.styles.profile}}">
+        <div class="{{profileHeader.styles.profileHeader}}">
+            <label for="avatar" class="{{profileHeader.styles.avatarLabel}}">
+                <img src="/static/profile/avatar.png" alt="User Avatar" class="{{profileHeader.styles.avatar}}" />
+                <input
+                    id="avatar"
+                    name="avatar"
+                    type="file"
+                    accept="image/*"
+                    class="{{profileHeader.styles.fileInputHidden}}"
+                />
+            </label>
+            <div class="{{profileHeader.styles.info}}">
+                <h1 class="{{profileHeader.styles.name}}">{{profileHeader.name}}</h1>
+                <h2 class="{{profileHeader.styles.subheading}}">Update Personal Info</h2>
+            </div>
+        </div>
+
+        <section class="{{styles.section}}">
+            <form>
+                <div class="{{styles.info}}">
+                    {{#each fields}}
+                        {{> FormItem this}}
+                    {{/each}}
+                </div>
+                <div class="{{styles.actionBlock}}">
+                    {{> Button
+                        label="Save"
+                        styles=buttonStyles
+                    }}
+                </div>
+            </form>
+            {{>  Footer}}
+        </section>
+    </div>
+</main>
