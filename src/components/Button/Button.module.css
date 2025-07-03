@@ -3,11 +3,12 @@
   height: 36px;
   padding: 8px 25px;
   text-align: center;
-  font-family: 'Roboto', monospace;;
+  font-family: Roboto, monospace;;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
   background-color: #3369F3;
   border: 0.5px solid #EAEAEA30;
   border-radius: 8px;
 }
+
 

@@ -7,11 +7,11 @@ https://www.figma.com/design/DCeE7s3jrXWQC1lCaYAgtG/Web-messenger?node-id=79698-
 
 
 ## Netlify:
-https://ltk-web-messenger.netlify.app/ 
+https://ltk-web-messenger.netlify.app/
 
 ## Страницы мессенджера:
 
-- `/` — Главная страница (чаты)
+- `/chats` — Главная страница (чаты)
 - `/signup` — Страница регистрации
 - `/login` — Страница входа
 - `/profile` — Профиль пользователя
@@ -23,4 +23,7 @@ https://ltk-web-messenger.netlify.app/
 
 * `npm run dev` - Запуск проекта на 3000 порту в режиме разработки
 * `npm run build` - Сборка проекта
+* `npm run lint` - Запуск линтеров
+* `npm run lint:fix` - Автофикс ошибок линтера
+* `npm run check` - Запуск тайпчека и линтеров
 

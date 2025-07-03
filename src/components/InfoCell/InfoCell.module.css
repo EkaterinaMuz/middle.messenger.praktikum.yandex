@@ -7,12 +7,12 @@
 .infoCell__label {
   font-weight: 600;
   font-size: 16px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .infoCell__value {
   font-size: 16px;
-  color: #ffffff;
+  color: #fff;
   margin-left: 80px;
   white-space: nowrap;
 }
@@ -24,4 +24,5 @@
   border: none;
   margin: 12px 0;
 }
+
 

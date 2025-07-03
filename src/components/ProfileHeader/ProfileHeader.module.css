@@ -28,14 +28,14 @@
 .profileHeader__name {
   margin-bottom: 10px;
   font-size: 30px;
-  color: #ffffff;
+  color: #fff;
   font-weight: bold;
 }
 
 .profileHeader__subheading {
   font-size: 15px;
-  font-family: 'Roboto', monospace;
-  color: #ffffff;
+  font-family: Roboto, monospace;
+  color: #fff;
   font-weight: 300;
 }
 

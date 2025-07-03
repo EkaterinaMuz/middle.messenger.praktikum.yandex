@@ -1,15 +1,17 @@
+import type Block from '../../framework/Block';
+
 import type { RouteConfigPaths } from './types';
 
-export const routes: Record<RouteConfigPaths, () => Promise<string>> = {
+export const routes: Record<RouteConfigPaths, () => Promise<Block>> = {
   login: async () => {
     const { LoginPage } = await import('../../routes');
 
     return LoginPage;
   },
   signup: async () => {
-    const { SignPage } = await import('../../routes');
+    const { SignupPage } = await import('../../routes');
 
-    return SignPage;
+    return SignupPage;
   },
   chat: async () => {
     const { ChatPage } = await import('../../routes');

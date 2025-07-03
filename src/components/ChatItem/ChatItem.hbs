@@ -1,0 +1,15 @@
+<div class="{{ styles.chatItem }}">
+    {{{ avatar }}}
+    <div class="{{ styles.chatItemInfo }}">
+        <div class="{{ styles.chatItemHeader }}">
+            <span class="{{ styles.chatItemName }}">{{ name }}</span>
+            <p class="{{ styles.chatItemMessage }}">{{ lastMessage }}</p>
+        </div>
+        <div class="{{ styles.chatItemContent }}">
+            <span class="{{ styles.chatItemTime }}">{{ time }}</span>
+            {{#if unread}}
+                <div class="{{ styles.chatItemUnread }}">{{ unread }}</div>
+            {{/if}}
+        </div>
+    </div>
+</div>

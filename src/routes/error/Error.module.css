@@ -5,14 +5,14 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   padding: 0 20px;
 }
 
 .title {
   font-size: 48px;
-  font-family: 'Roboto', monospace;
-  color: #ffffff;
+  font-family: Roboto, monospace;
+  color: #fff;
   font-weight: 300;
   margin-bottom: 16px;
 }
@@ -20,20 +20,21 @@
 .subtitle {
   margin: 0;
   font-size: 24px;
-  font-family: 'Roboto', monospace;
+  font-family: Roboto, monospace;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
 }
 
 .description {
   font-size: 24px;
-  font-family: 'Roboto', monospace;
+  font-family: Roboto, monospace;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   margin-bottom: 4px;
 }
 
 .instruction {
   font-size: 14px;
-  color: #ffffff;
+  color: #fff;
 }
+

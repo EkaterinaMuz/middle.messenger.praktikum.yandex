@@ -1,15 +1,8 @@
-import  Handlebars from 'handlebars';
-
 import { renderRoute } from './infrastructure/routing';
-import { FormItem, InfoCell, ProfileHeader , Button, Footer } from './components';
-import { RouteConfigPaths } from './infrastructure/routing/types';
+import  { RouteConfigPaths } from './infrastructure/routing/types';
 import { isRouteConfigPath } from './infrastructure/utils';
-
-Handlebars.registerPartial('FormItem', FormItem);
-Handlebars.registerPartial('Button', Button);
-Handlebars.registerPartial('ProfileHeader', ProfileHeader);
-Handlebars.registerPartial('InfoCell', InfoCell);
-Handlebars.registerPartial('Footer', Footer);
+import type Block from './framework/Block';
+import {Footer} from "./components";
 
 export default class App {
   constructor() {
@@ -31,35 +24,37 @@ export default class App {
       return null;
     }
 
-    this.rootElement.innerHTML =  this.renderedPage;
+    const page = this.renderedPage.element();
 
-    this.attachEventListeners();
+    this.rootElement.innerHTML = '';
+    this.rootElement.appendChild(page);
+
+      const footer = new Footer({
+          events: {
+              click: (e: Event) => this.handleNavigate(e)
+          }
+      });
+
+      page.appendChild(footer.element());
+
   }
 
-  public  attachEventListeners() {
-    const links = document.querySelectorAll('[data-page]');
-
-    links.forEach(link =>link.addEventListener('click', (e) => {
+  public handleNavigate(e: Event) {
       e.preventDefault();
-
       const targetElement = e.target;
 
       if (targetElement instanceof HTMLElement) {
-        const page =  targetElement.dataset.page;
+          const page =  targetElement.dataset.page;
 
-        if (isRouteConfigPath(page)) {
-          this.navigate(page);
-        }
+          if (isRouteConfigPath(page)) {
+              this.currentPage = page;
+             void this.init();
+          }
       }
-    }));
   }
 
-  public navigate(page: RouteConfigPaths) {
-    this.currentPage = page;
-    this.init();
-  }
 
   private readonly rootElement: HTMLElement | null;
-  private currentPage: RouteConfigPaths = RouteConfigPaths.edit;
-  private renderedPage: string | null = null;
+  private currentPage: RouteConfigPaths = RouteConfigPaths.chat;
+  private renderedPage:  Block | null = null;
   }

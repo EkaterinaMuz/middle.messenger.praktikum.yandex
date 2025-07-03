@@ -1,6 +1,25 @@
-import  Handlebars from 'handlebars';
+import Block from '../../framework/Block';
+import type { BlockProps } from '../../framework';
 
-import FooterTemplate from './Footer.hbs?raw';
+import template from './Footer.hbs?raw';
 
-export const Footer = Handlebars.compile(FooterTemplate);
+export default class Footer extends Block {
+    public constructor(props: BlockProps = {}) {
+        super({
+            ...props
+        });
+    }
+
+    public override render() {
+        return template;
+    }
+
+    public componentDidMount() {
+
+    }
+}
+
+
+
+
 

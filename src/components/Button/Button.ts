@@ -1,5 +1,22 @@
-import  Handlebars from 'handlebars';
+import Block from '../../framework/Block.ts';
 
-import ButtonTemplate from './Button.hbs?raw';
+import styles from './Button.module.css';
+import template from './Button.hbs?raw';
 
-export const Button = Handlebars.compile(ButtonTemplate);
+export default class Button extends Block {
+  public constructor(props = {}) {
+    super({
+      styles: styles.button,
+      ...props
+    });
+  }
+
+  public override render() {
+    return template;
+  }
+
+  public componentDidMount() {
+
+  }
+}
+
