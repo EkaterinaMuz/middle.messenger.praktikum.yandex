@@ -1,1 +1,1 @@
-export { InfoCell } from './InfoCell';
+// export { InfoCell } from './InfoCell';

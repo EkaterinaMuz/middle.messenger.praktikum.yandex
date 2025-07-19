@@ -1,0 +1,9 @@
+<div class="{{ styles.message }} {{ styles.mine }}">
+    <p class="{{ styles.messageText }}">{{ text }}</p>
+    <div class="{{ styles.messageInfo }}">
+        <span class="{{ styles.messageTime }}">{{ time }}</span>
+        {{#if isMine }}
+            <span class="{{ styles.messageState }}">{{ status }}</span>
+        {{/if }}
+    </div>
+</div>

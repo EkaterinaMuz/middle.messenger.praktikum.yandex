@@ -24,10 +24,10 @@
 }
 
 .signForm__title {
-  font-family: 'Roboto', monospace;
+  font-family: Roboto, monospace;
   font-size: 20px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.81);
+  color: rgb(255 255 255 / 81%);
   text-align: center;
 }
 
@@ -42,20 +42,20 @@
   display: block;
   width: 100%;
   margin-bottom: 20px;
-  font-family: 'Roboto', monospace;
+  font-family: Roboto, monospace;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.81);
+  color: rgb(255 255 255 / 81%);
   text-align: center;
 }
 
 .signForm__info {
   margin-top: 27px;
   text-align: center;
-  font-family: 'Roboto', monospace;;
+  font-family: Roboto, monospace;;
 }
 
 .signForm__text {
-  color: rgba(255, 255, 255, 0.81);
+  color: rgb(255 255 255 / 81%);
   font-size: 14px;
 }
 

@@ -1,0 +1,28 @@
+<main id="container">
+    <div class="{{ styles.container }}">
+    <aside class="{{ styles.chatAside }}">
+        <div class={{ styles.chatHeader }}>
+            <div class={{ styles.chatHeaderUser }}>
+                {{{ userAvatar }}} {{ userInfo.name }}
+            </div>
+            {{{ profileLink }}}
+        </div>
+        <div class={{ styles.chatSearchBlock }}>
+            {{{ searchField }}}
+        </div>
+        <div class={{ styles.chatList }}> {{{ chats }}} </div>
+    </aside>
+    <div class="{{ styles.chatMain }}">
+        <div class={{ styles.chatHeader }}>
+            <div class={{ styles.chatHeaderUser }}>
+                {{{ chatUserAvatar }}} {{ chatUserInfo.name }}
+            </div>
+            {{{ chatSettingsLink }}}
+        </div>
+        <section class="{{ styles.chatMessages }}"> {{{ messages }}} </section>
+        <div class="{{ styles.chatInput }}">
+            {{{ chatInput }}}
+        </div>
+    </div>
+    </div>
+</main>

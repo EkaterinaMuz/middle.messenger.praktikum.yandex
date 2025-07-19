@@ -1,11 +1,9 @@
-<main class="{{ styles.card }}">
+<main id="container" class="{{ styles.card }}">
     <div class="{{styles.profile}}">
-        {{> ProfileHeader profileHeader}}
+        {{{ ProfileHeader }}}
         <section class="{{styles.section}}">
             <div class="{{styles.info}}">
-                {{#each fields}}
-                    {{> InfoCell this}}
-                {{/each}}
+             {{{ fields }}}
             <div class="{{styles.actionBlock}}">
                 <a href="/profile/edit" data-page="edit" class="link">Update Information</a>
                 <a href="/profile/password" data-page="password" class="link">Change password</a>
@@ -13,7 +11,6 @@
             <hr class="{{styles.separator}}" />
             <a class="link link--red" href="#">Sign out</a>
             </div>
-            {{>  Footer}}
         </section>
     </div>
 </main>

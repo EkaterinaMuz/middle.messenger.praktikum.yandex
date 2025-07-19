@@ -1,0 +1,31 @@
+<main id="container" class="{{ styles.card }}">
+    <div class="{{headerStyles.profile}}">
+        <div class="{{headerStyles.profileHeader}}">
+            <label for="avatar" class="{{headerStyles.avatarLabel}}">
+                <img src="/static/profile/avatar.png" alt="User Avatar" class="{{headerStyles.avatar}}" />
+                <input
+                    id="avatar"
+                    name="avatar"
+                    type="file"
+                    accept="image/*"
+                    class="{{headerStyles.fileInputHidden}}"
+                />
+            </label>
+            <div class="{{headerStyles.info}}">
+                <h1 class="{{headerStyles.name}}">{{profileHeader.name}}</h1>
+                <h2 class="{{headerStyles.subheading}}">Update Personal Info</h2>
+            </div>
+        </div>
+
+        <section class="{{styles.section}}">
+            <form>
+                <div class="{{styles.info}}">
+                    {{{ fields }}}
+                </div>
+                <div class="{{styles.actionBlock}}">
+                    {{{ Button }}}
+                </div>
+            </form>
+        </section>
+    </div>
+</main>
