@@ -14,15 +14,19 @@ export function handleSubmit(event: Event) {
             return;
         }
 
+        // if (key === 'avatar') {
+        //
+        // }
         const error = validateFormField(key, value.toString());
 
         if (error) {
             console.error(`Validation failed for ${key}: ${error}`);
             return;
         }
-
         formResult[key] = value;
     }
 
     console.log('FormData:', formResult);
+
+    return formResult;
 }

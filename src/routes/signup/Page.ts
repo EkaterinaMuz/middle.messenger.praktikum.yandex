@@ -4,10 +4,12 @@ import { handleSubmit } from "../../shared/utils/forms";
 
 import template from './PageTemplate.hbs?raw';
 import styles from './Signup.module.css';
+import {SignupFetchService} from "../../domains/signup/SignupFetchService.ts";
+import {navigate} from "../../infrastructure/utils";
 
 
 
-class Page extends Block {
+export class SignupPage extends Block {
   public constructor(props = {}) {
     super({
       formName: 'Create Account',
@@ -85,13 +87,42 @@ class Page extends Block {
         info: styles.signForm__info,
       },
       events: {
-          submit: (e: Event) => handleSubmit(e)
+          submit: (e: Event) => this.signUp(e)
       },
       ...props
     });
   }
 
-  public override render() {
+  private async signUp(e: Event) {
+
+      const data = handleSubmit(e);
+
+      if (!data) {
+          return;
+      };
+
+      if (
+          typeof data.login !== 'string' ||
+          typeof data.password !== 'string'
+      ) {
+          console.error('Некорректные данные для регистрации');
+          return;
+      }
+
+     const controller = new SignupFetchService();
+
+     const response = await controller.request( {login: data.login,
+          password: data.password});
+
+     if (response.status === 200) {
+         navigate(e,'/');
+     }
+
+
+  }
+
+
+    public override render() {
     return template;
   }
 
@@ -100,6 +131,4 @@ class Page extends Block {
   }
 
 }
-
-export const SignupPage = new Page();
 

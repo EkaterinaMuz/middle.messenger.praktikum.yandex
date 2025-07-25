@@ -53,6 +53,7 @@ const phoneNumberRule = {
 export const fieldChecks: FieldChecks= {
     first_name: [firstUpperCaseLetterRule, lettersOnlyRule],
     second_name: [firstUpperCaseLetterRule, lettersOnlyRule],
+    display_name: [lettersOnlyRule],
     login: [loginRules.length, loginRules.letters, loginRules.noDigitsOnly],
     email: [emailRules],
     password: [passwordRules.length, passwordRules.firstUpperCaseLetterRule, passwordRules.hasDigit],

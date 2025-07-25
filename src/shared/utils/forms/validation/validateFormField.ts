@@ -4,11 +4,19 @@ import type { FieldNames } from './types';
 export function isFieldName(key: string): key is FieldNames {
   return [
     "first_name",
+    "avatar",
     "second_name",
+    "display_name",
     "login",
     "email",
     "password",
-    "phone"
+    "oldPassword",
+    "newPassword",
+    "password",
+    "phone",
+    "chat",
+      "add_user",
+      "delete_user"
   ].includes(key);
 }
 

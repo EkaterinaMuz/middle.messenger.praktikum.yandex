@@ -1,4 +1,4 @@
-enum HTTP_STATUS_CODE  {
+export enum HTTP_STATUS_CODE  {
     INFO = 100,
     OK = 200,
     REDIRECTION = 300,
@@ -17,44 +17,54 @@ export const METHODS  = {
 export interface RequestOptions extends RequestInit {
     // method?: METHODS;
     headers?: Record<string, string>;
-    data?: Record<string, string | number | boolean> | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data?: Record<string, any>;
     timeout?: number;
 }
 
-
-function queryStringify(data: Record<string, string | number | boolean>) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function queryStringify(data: Record<string, any>) {
     if(typeof data !== 'object' || !data) {
         throw new Error('Data must be object');
     }
 
     const keys = Object.keys(data);
 
-    const string =  keys.reduce((acc, key, index) => {
+    return keys.reduce((acc, key, index) => {
         return `${acc}${key}=${encodeURIComponent(data[key])}${index < keys.length - 1 ? '&' : ''}`;
     }, '?');
-
-    return string;
 }
 
 
 export class HTTPTransport {
-    get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
-        return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+    public constructor(baseApiMethod: string = '/') {
+        this.baseApiMethod = baseApiMethod;
+    }
+    public readonly get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
+        return this.request(`${HTTPTransport.HOST}/${this.baseApiMethod}/${url}`, { ...options, method: METHODS.GET }, options.timeout);
     };
 
-    post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
-        return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+    public readonly post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
+        return this.request(`${HTTPTransport.HOST}/${this.baseApiMethod}/${url}`, { ...options,
+            method: METHODS.POST,
+            headers: {
+                'Content-type': 'application/json',
+                 credentials: 'include',
+                 mode: 'cors',
+            }
+        },
+            options.timeout);
     };
 
-    delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
-        return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+    public readonly delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
+        return this.request(`${HTTPTransport.HOST}/${this.baseApiMethod}/${url}`, { headers: {'Content-type': 'application/json'}, ...options, method: METHODS.DELETE }, options.timeout);
     };
 
-    put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
-        return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+    public readonly put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => {
+        return this.request(`${HTTPTransport.HOST}/${this.baseApiMethod}/${url}`, { headers: {'Content-type': 'application/json'}, method: METHODS.PUT, ...options }, options.timeout);
     };
 
-    request = (url: string, options: RequestOptions, timeout = 5000): Promise<XMLHttpRequest> => {
+    private readonly request = (url: string, options: RequestOptions, timeout = 5000): Promise<XMLHttpRequest> => {
         const { method, data, headers = {} } = options;
 
         return new Promise((resolve, reject) => {
@@ -77,7 +87,7 @@ export class HTTPTransport {
             }
 
             try {
-                xhr.open(method, isGet && data ? `${url}${requestUrl}` : url);
+                xhr.open(method, isGet && data ? requestUrl : url);
             } catch (error) {
                 return reject(error);
             }
@@ -85,6 +95,8 @@ export class HTTPTransport {
             Object.keys(headers).forEach(key => {
                 xhr.setRequestHeader(key, headers[key]);
             });
+
+            xhr.withCredentials = true;
 
             xhr.onload = () => {
                 if (xhr.status >= HTTP_STATUS_CODE.OK && xhr.status < HTTP_STATUS_CODE.REDIRECTION) {
@@ -110,4 +122,7 @@ export class HTTPTransport {
             }
         });
     };
+
+    private static HOST = 'https://ya-praktikum.tech/api/v2';
+    private readonly baseApiMethod: string = '';
 }

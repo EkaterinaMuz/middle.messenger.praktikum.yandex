@@ -1,5 +1,6 @@
 <main id="container" class="{{ styles.card }}">
     <div class="{{headerStyles.profile}}">
+        <form>
         <div class="{{headerStyles.profileHeader}}">
             <label for="avatar" class="{{headerStyles.avatarLabel}}">
                 <img src="/static/profile/avatar.png" alt="User Avatar" class="{{headerStyles.avatar}}" />
@@ -15,10 +16,10 @@
                 <h1 class="{{headerStyles.name}}">{{profileHeader.name}}</h1>
                 <h2 class="{{headerStyles.subheading}}">Update Personal Info</h2>
             </div>
+            {{{ NavigateButton }}}
         </div>
 
         <section class="{{styles.section}}">
-            <form>
                 <div class="{{styles.info}}">
                     {{{ fields }}}
                 </div>

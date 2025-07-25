@@ -5,11 +5,11 @@
             <div class="{{styles.info}}">
              {{{ fields }}}
             <div class="{{styles.actionBlock}}">
-                <a href="/profile/edit" data-page="edit" class="link">Update Information</a>
-                <a href="/profile/password" data-page="password" class="link">Change password</a>
+                {{{ profileEditLink }}}
+                {{{ passwordEditLink }}}
             </div>
             <hr class="{{styles.separator}}" />
-            <a class="link link--red" href="#">Sign out</a>
+             {{{ signOutLink }}}
             </div>
         </section>
     </div>

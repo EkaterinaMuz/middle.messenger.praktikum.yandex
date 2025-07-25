@@ -44,10 +44,12 @@ export default abstract class Block<Props extends BlockProps = BlockProps> {
   protected init() {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
+
   public destroy() {
     this._unregisterEvents(this.eventBus());
-      this._removeEvents();
-      this._element = null;
+    this._removeEvents();
+    this._element?.remove();
+    this._element = null;
   }
 
   protected abstract componentDidMount(): void
@@ -78,10 +80,12 @@ export default abstract class Block<Props extends BlockProps = BlockProps> {
     Object.assign(this.props, nextProps);
   };
 
-  public element(): HTMLElement {
-    if (!this._element) {
-      throw new Error('Element is not created');
-    }
+  public setLists = (key: string, value: Block[]): void => {
+      this.lists[key] = value;
+      this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+  };
+
+  public element(): HTMLElement | null {
     return this._element;
   }
 
@@ -168,13 +172,14 @@ export default abstract class Block<Props extends BlockProps = BlockProps> {
         });
 
         const fragment = this._createDocumentElement('template');
+
         fragment.innerHTML = Handlebars.compile(this.render())(propsAndStubs);
 
         Object.values(this.children).forEach(child => {
             const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
 
-            if (stub) {
-                stub.replaceWith(child.element());
+            if (stub && child.element()) {
+                stub.replaceWith(child.element() as Node);
             }
         });
 
@@ -187,7 +192,7 @@ export default abstract class Block<Props extends BlockProps = BlockProps> {
 
             child.forEach((item: unknown) => {
                 if (item instanceof Block) {
-                    listCont.content.append(item.element());
+                    listCont.content.append(item.element() as Node);
                 } else {
                     listCont.content.append(`${item}`);
                 }
@@ -202,6 +207,7 @@ export default abstract class Block<Props extends BlockProps = BlockProps> {
         if (this._element && newElement) {
             this._element.replaceWith(newElement);
         }
+        console.log(newElement, 'newElement');
         this._element = newElement;
         this._addEvents();
         this.addAttributes();
