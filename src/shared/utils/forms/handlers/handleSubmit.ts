@@ -20,9 +20,10 @@ export function handleSubmit(event: Event) {
             console.error(`Validation failed for ${key}: ${error}`);
             return;
         }
-
         formResult[key] = value;
     }
 
     console.log('FormData:', formResult);
+
+    return formResult;
 }

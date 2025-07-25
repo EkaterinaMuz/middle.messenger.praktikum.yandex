@@ -4,9 +4,11 @@ import { handleSubmit } from "../../shared/utils/forms";
 
 import template from './PageTemplate.hbs?raw';
 import styles from './LoginForm.module.css';
+import {navigate} from "../../infrastructure/utils";
+import {LoginController} from "../../domains/login/LoginController.ts";
 
 
-class Page extends Block {
+export class LoginPage extends Block {
   public constructor(props = {}) {
     super({
       formName: 'Login',
@@ -32,10 +34,13 @@ class Page extends Block {
         type: "submit",
         label: "Sign in",
       }),
-      Link: new Link({
+      ResetPasswordLink: new Link({
         dataPage: "signup",
-        href: "/signUp",
-        label: 'Create profile'
+        href: "#",
+        label: 'Create profile',
+          events: {
+              click: (e: Event) => navigate(e,'/sign-up')
+          },
       }),
       styles: {
         card: styles.card,
@@ -47,11 +52,41 @@ class Page extends Block {
         info: styles.loginForm__info
       },
       events: {
-          submit: (e: Event) => handleSubmit(e)
+          submit: (e: Event) => this.login(e)
       },
       ...props
     });
   }
+
+    private async login(e: Event) {
+
+        const data = handleSubmit(e);
+
+        if (!data) {
+            return;
+        };
+
+        if (
+            typeof data.login !== 'string' ||
+            typeof data.password !== 'string'
+        ) {
+            console.error('Некорректные данные для регистрации');
+            return;
+        }
+
+        try {
+            const controller = new LoginController();
+
+            const response = await controller.login(e, { login: data.login,
+                password: data.password});
+
+            if (response?.status === 200) {
+                navigate(e,'/messenger');
+            }
+        } catch (error: unknown) {
+            console.log(error);
+        }
+    }
 
   public override render() {
     return template;
@@ -61,6 +96,4 @@ class Page extends Block {
 
   }
 }
-
-export const LoginPage = new Page();
 

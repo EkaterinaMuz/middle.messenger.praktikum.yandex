@@ -3,7 +3,7 @@ import Block from '../../framework/Block.ts';
 import template from './ErrorTemplate.hbs?raw';
 import styles from './Error.module.css';
 
-class Page extends Block {
+export class ErrorPage extends Block {
   constructor(props = {}) {
     super({
       styles: {
@@ -26,5 +26,3 @@ class Page extends Block {
 
   }
 }
-
-export const ErrorPage = new Page();

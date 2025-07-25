@@ -1,2 +1,2 @@
-export * from './renderRoute';
+export * from './Router';
 

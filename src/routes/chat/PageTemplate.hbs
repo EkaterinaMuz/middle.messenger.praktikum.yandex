@@ -19,10 +19,18 @@
             </div>
             {{{ chatSettingsLink }}}
         </div>
+        {{{ createChatLink }}}
+        {{#if chatId}}
+            {{{ AddUserLink }}}
+            {{{ DeleteUserLink }}}
+        {{/if}}
         <section class="{{ styles.chatMessages }}"> {{{ messages }}} </section>
         <div class="{{ styles.chatInput }}">
             {{{ chatInput }}}
         </div>
     </div>
     </div>
+    {{{ CreateChatModalBox }}}
+    {{{ AddUserToChatModalBox }}}
+    {{{ DeleteUserFromChatModalBox }}}
 </main>

@@ -2,13 +2,13 @@
     {{{ avatar }}}
     <div class="{{ styles.chatItemInfo }}">
         <div class="{{ styles.chatItemHeader }}">
-            <span class="{{ styles.chatItemName }}">{{ name }}</span>
-            <p class="{{ styles.chatItemMessage }}">{{ lastMessage }}</p>
+            <span class="{{ styles.chatItemName }}">{{ title }}</span>
+            <p class="{{ styles.chatItemMessage }}">{{ content }}</p>
         </div>
         <div class="{{ styles.chatItemContent }}">
             <span class="{{ styles.chatItemTime }}">{{ time }}</span>
             {{#if unread}}
-                <div class="{{ styles.chatItemUnread }}">{{ unread }}</div>
+                <div class="{{ styles.chatItemUnread }}">{{ unread_count }}</div>
             {{/if}}
         </div>
     </div>
