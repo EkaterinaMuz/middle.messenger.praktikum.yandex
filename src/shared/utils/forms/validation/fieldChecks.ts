@@ -30,6 +30,11 @@ const emailRules = {
     message: "Invalid email address."
 };
 
+const messageRules = {
+    test: (v: string)=> Boolean(v.length),
+    message: "Empty message"
+};
+
 const passwordRules = {
     length: {
         test: (v: string)=> v.length >= 8 && v.length <= 40,
@@ -53,10 +58,13 @@ const phoneNumberRule = {
 export const fieldChecks: FieldChecks= {
     first_name: [firstUpperCaseLetterRule, lettersOnlyRule],
     second_name: [firstUpperCaseLetterRule, lettersOnlyRule],
+    display_name: [lettersOnlyRule],
     login: [loginRules.length, loginRules.letters, loginRules.noDigitsOnly],
     email: [emailRules],
     password: [passwordRules.length, passwordRules.firstUpperCaseLetterRule, passwordRules.hasDigit],
     oldPassword: [passwordRules.length, passwordRules.firstUpperCaseLetterRule, passwordRules.hasDigit],
     newPassword: [passwordRules.length, passwordRules.firstUpperCaseLetterRule, passwordRules.hasDigit],
-    phone: [phoneNumberRule]
+    phone: [phoneNumberRule],
+    message: [messageRules],
+    avatar: [],
 };

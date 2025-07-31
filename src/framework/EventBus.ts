@@ -1,5 +1,9 @@
 export type EventCallback = (...args: string[]) => void;
 
+export enum StoreEvents {
+    Updated = 'updated',
+}
+
 export default class EventBus {
   private readonly listeners: Record<string, EventCallback[]>;
 

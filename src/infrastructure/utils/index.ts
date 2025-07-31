@@ -1,1 +1,2 @@
-export { isRouteConfigPath } from './isRouteConfigPath';
+export { navigate } from './navigate';
+export { render } from './render';
