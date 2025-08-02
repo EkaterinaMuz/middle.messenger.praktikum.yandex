@@ -26,4 +26,5 @@ https://ltk-web-messenger.netlify.app/
 * `npm run lint` - Запуск линтеров
 * `npm run lint:fix` - Автофикс ошибок линтера
 * `npm run check` - Запуск тайпчека и линтеров
+* `npm run test` - Запуск тестов
 

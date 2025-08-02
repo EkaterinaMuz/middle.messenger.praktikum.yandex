@@ -23,7 +23,7 @@ export interface RequestOptions extends RequestInit {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function queryStringify(data: Record<string, any>) {
+export function queryStringify(data: Record<string, any>) {
     if(typeof data !== 'object' || !data) {
         throw new Error('Data must be object');
     }
