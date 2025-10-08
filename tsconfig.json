@@ -7,7 +7,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "esnext"],
     "jsx": "react-jsx",
     "skipLibCheck": true,
 
